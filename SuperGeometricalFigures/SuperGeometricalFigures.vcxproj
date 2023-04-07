@@ -127,7 +127,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ellipse.cpp" />
+    <ClCompile Include="rectangle.cpp" />
+    <ClCompile Include="shape.cpp" />
+    <ClCompile Include="shapeparser.cpp" />
     <ClCompile Include="SuperGeometricalFigures.cpp" />
+    <ClCompile Include="сompositeshape.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base-types.h" />
+    <ClInclude Include="ellipse.h" />
+    <ClInclude Include="rectangle.h" />
+    <ClInclude Include="shape.h" />
+    <ClInclude Include="shapeparser.h" />
+    <ClInclude Include="сompositeshape.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input.txt" />
+    <Text Include="input1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
