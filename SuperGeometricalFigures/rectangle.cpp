@@ -40,7 +40,7 @@ void Rectangle::move(const point_t& point)
 	bottomLeft.y = center.y - delta.y;
 }
 
-void Rectangle::move(const double& dx, const double& dy)
+void Rectangle::move(const double dx, const double dy)
 {
 	bottomLeft.x += dx;
 	bottomLeft.y += dy;
@@ -50,7 +50,7 @@ void Rectangle::move(const double& dx, const double& dy)
 	center.y += dy;
 }
 
-void Rectangle::scale(const double& zoomRatio)
+void Rectangle::scale(const double zoomRatio)
 {
 	point_t delta{ topRight.x - center.x, topRight.y - center.y };
 	delta.x *= zoomRatio;
@@ -66,8 +66,8 @@ std::string Rectangle::getName() const
 	return "RECTANGLE";
 }
 
-Shape* Rectangle::clone() const
+std::unique_ptr<Shape> Rectangle::clone() const
 {
-	Shape* clone = new Rectangle(*this);
+	std::unique_ptr<Shape> clone = std::make_unique<Rectangle>(*this);
 	return clone;
 }

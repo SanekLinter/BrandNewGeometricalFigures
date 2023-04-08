@@ -15,13 +15,16 @@ private:
 public:
 	Ellipse(double centerX, double centerY, double verticalRadius, double horizontalRadius);
 	Ellipse(const Ellipse& other);
-	~Ellipse() = default;
-	double getArea() const override;
-	rectangle_t getFrameRect() const override;
-	void move(const point_t& point) override;
-	void move(const double& dx, const double& dy) override;
-	void scale(const double& zoomRatio) override;
-	std::string getName() const override;
-	Shape* clone() const override;
+	Ellipse(Ellipse&& other)                 = delete;
+	Ellipse& operator=(const Ellipse& other) = delete;
+	Ellipse& operator=(Ellipse&& other)      = delete;
+	~Ellipse()                               = default;
+	double                 getArea() const override;
+	rectangle_t            getFrameRect() const override;
+	void                   move(const point_t& point) override;
+	void                   move(const double dx, const double dy) override;
+	void                   scale(const double zoomRatio) override;
+	std::string            getName() const override;
+	std::unique_ptr<Shape> clone() const override;
 };
 #endif

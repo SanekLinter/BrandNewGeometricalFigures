@@ -34,13 +34,13 @@ void Ellipse::move(const point_t& point)
 	center.y = point.y;
 }
 
-void Ellipse::move(const double& dx, const double& dy)
+void Ellipse::move(const double dx, const double dy)
 {
 	center.x += dx;
 	center.y += dy;
 }
 
-void Ellipse::scale(const double& zoomRatio)
+void Ellipse::scale(const double zoomRatio)
 {
 	verticalRadius *= zoomRatio;
 	horizontalRadius *= zoomRatio;
@@ -51,8 +51,8 @@ std::string Ellipse::getName() const
 	return "ELLIPSE";
 }
 
-Shape* Ellipse::clone() const
+std::unique_ptr<Shape> Ellipse::clone() const
 {
-	Shape* clone = new Ellipse(*this);
+	std::unique_ptr<Shape> clone = std::make_unique<Ellipse>(*this);
 	return clone;
 }

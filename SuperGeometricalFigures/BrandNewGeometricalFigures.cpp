@@ -1,14 +1,11 @@
 ﻿#include <iostream>
 #include <fstream>
-#include <sstream>
-#include "ellipse.h"
-#include "rectangle.h"
-#include "сompositeshape.h"
 #include "shapeparser.h"
+#include "shapecollection.h"
 
 int main()
 {
-	inputFileProcessing_t parser;
+	InputFileParser &parser = InputFileParser::Instance();
 
 	std::ifstream inputFile("input1.txt");
 	if (!inputFile) {
@@ -16,8 +13,8 @@ int main()
 		return -1;
 	}
 	while (!inputFile.eof()) {
-		std::getline(inputFile, parser.line);
-		parser.lineStream << parser.line;
+		std::getline(inputFile, parser.lineString);
+		parser.lineStream << parser.lineString;
 		parser.lineStream >> parser.command;
 		TypesOfCommand commandType = getTypesOfCommand(parser.command);
 		try {
@@ -27,7 +24,7 @@ int main()
 			std::cerr << e.what() << '\n';
 		}
 
-		parser.line.clear();
+		parser.lineString.clear();
 		parser.command.clear();
 		parser.lineStream.clear();
 	}

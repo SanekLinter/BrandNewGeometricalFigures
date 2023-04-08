@@ -24,6 +24,7 @@
     <ProjectGuid>{aef10981-4974-4bdd-b126-2b143f05fc4d}</ProjectGuid>
     <RootNamespace>SuperGeometricalFigures</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>BrandNewGeometricalFigures</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -104,6 +105,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,8 +132,9 @@
     <ClCompile Include="ellipse.cpp" />
     <ClCompile Include="rectangle.cpp" />
     <ClCompile Include="shape.cpp" />
+    <ClCompile Include="shapecollection.cpp" />
     <ClCompile Include="shapeparser.cpp" />
-    <ClCompile Include="SuperGeometricalFigures.cpp" />
+    <ClCompile Include="BrandNewGeometricalFigures.cpp" />
     <ClCompile Include="сompositeshape.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +142,7 @@
     <ClInclude Include="ellipse.h" />
     <ClInclude Include="rectangle.h" />
     <ClInclude Include="shape.h" />
+    <ClInclude Include="shapecollection.h" />
     <ClInclude Include="shapeparser.h" />
     <ClInclude Include="сompositeshape.h" />
   </ItemGroup>
