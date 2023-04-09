@@ -20,7 +20,7 @@ std::ostream& operator<<(std::ostream& out, const Shape& shape) {
 	out << std::setprecision(1) << std::fixed;
 	out << shape.getName() << ' ' << shape.getArea() << ' ' <<
 		leftDown.x << ' ' << leftDown.y << ' ' << rightUp.x << ' ' << rightUp.y;
-	out << std::setprecision(default_precision) << std::defaultfloat;
+	out << std::setprecision(default_precision) << std::defaultfloat; //here comes the sun dodododo here comes the sun and i say its alright
 	return out;
 }
 
