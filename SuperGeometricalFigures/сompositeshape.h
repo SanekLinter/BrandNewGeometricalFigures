@@ -21,23 +21,26 @@ COMPLEXEND
 #ifndef COMPOSITE_SHAPE_H
 #define COMPOSITE_SHAPE_H
 #include "shapecollection.h"
-class CompositeShape : public Shape {
-private:
-	ShapeCollection _shapes;
-	rectangle_t     _frameRect;
+class CompositeShape : public Shape
+{
 public:
+	// construct/copy/move/destrust
 	CompositeShape(ShapeCollection&& src);
 	CompositeShape(const CompositeShape& other);
 	CompositeShape(CompositeShape&& other)                 = delete;
 	CompositeShape& operator=(const CompositeShape& other) = delete;
 	CompositeShape& operator=(CompositeShape&& other)      = delete;
-	~CompositeShape()                                      = default;
-	double                 getArea() const override;
-	rectangle_t            getFrameRect() const override;
-	void                   move(const point_t& point) override;
-	void                   move(const double dx, const double dy) override;
-	void                   scale(const double zoomRatio) override;
-	std::string            getName() const override;
-	std::unique_ptr<Shape> clone() const override;
+	~CompositeShape() = default;
+	// members
+	double		getArea() const override;
+	rectangle_t getFrameRect() const override;
+	void		move(const point_t& point) override;
+	void		move(const double dx, const double dy) override;
+	void		scale(const double zoomRatio) override;
+	std::string getName() const override;
+	shape_ptr_t clone() const override;
+private:
+	ShapeCollection _shapes;
+	rectangle_t     _frameRect;
 };
 #endif

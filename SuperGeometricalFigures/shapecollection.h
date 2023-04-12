@@ -1,26 +1,28 @@
 #ifndef SHAPECOLLECTION_H
 #define SHAPECOLLECTION_H
-#include "shape.h"
 #include <vector>
-#include <memory>
+#include "shape.h"
 
-class ShapeCollection {
-private:
-	std::vector<std::unique_ptr<Shape>> _shapes;
+class ShapeCollection
+{
 public:
+	// construct/copy/move/destrust
 	ShapeCollection();
-	ShapeCollection(const ShapeCollection& other)            = delete;
-	ShapeCollection(ShapeCollection&& other);
-	ShapeCollection& operator=(const ShapeCollection& other) = delete;
-	ShapeCollection& operator=(ShapeCollection&& other);
+	ShapeCollection(const ShapeCollection& other)				 = delete;
+	ShapeCollection(ShapeCollection&& other) noexcept;
+	ShapeCollection& operator=(const ShapeCollection& other)	 = delete;
+	ShapeCollection& operator=(ShapeCollection&& other) noexcept;
 	~ShapeCollection() = default;
-	void					add(std::unique_ptr<Shape> newShape);
-	void					clear();
-	void                    showInfo(std::ostream& out) const;
-	size_t					getSize() const;
-	void                    sortShapes();
-	std::unique_ptr<Shape>& operator[](size_t index);
-	const std::unique_ptr<Shape>& operator[](size_t index) const;
+	// members
+	void			   add(shape_ptr_t newShape);
+	void			   clear();
+	void			   showInfo(std::ostream& out) const;
+	size_t			   getSize() const;
+	void			   sortShapes();
+	shape_ptr_t&	   operator[](size_t index);
+	const shape_ptr_t& operator[](size_t index) const;
+private:
+	std::vector<shape_ptr_t> _shapes;
 };
 
 #endif

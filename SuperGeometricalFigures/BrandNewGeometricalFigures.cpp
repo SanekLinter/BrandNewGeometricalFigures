@@ -1,7 +1,6 @@
 ﻿#include <iostream>
 #include <fstream>
 #include "shapeparser.h"
-#include "shapecollection.h"
 
 int main()
 {

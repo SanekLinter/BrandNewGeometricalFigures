@@ -4,13 +4,13 @@
 #include "shapecollection.h"
 
 enum class TypesOfCommand {
-	IGNORE,
-	MOVE,
-	SCALE,
-	COMPLEX,
-	COMPLEXEND,
-	RECTANGLE,
-	ELLIPSE,
+	IGNORE     = 0,
+	MOVE       = 1,
+	SCALE      = 2,
+	COMPLEX    = 3,
+	COMPLEXEND = 4,
+	RECTANGLE  = 5,
+	ELLIPSE    = 6,
 };
 
 class InputFileParser
@@ -29,13 +29,14 @@ private:
 	InputFileParser& operator=(const InputFileParser& src) = delete;
 };
 
-TypesOfCommand getTypesOfCommand(std::string str);
-void doCommand(TypesOfCommand& command, InputFileParser& parser);
-void readEllipse(InputFileParser& parser);
-void readRectangle(InputFileParser& parser);
+TypesOfCommand getTypesOfCommand(const std::string& command);
+void doCommand(TypesOfCommand command, InputFileParser& parser);
+void doIgnore(InputFileParser& parser);
+void doMove(InputFileParser& parser);
+void doScale(InputFileParser& parser);
 void readComplex(InputFileParser& parser);
 void readCompelxEnd(InputFileParser& parser);
-void doScale(InputFileParser& parser);
-void doMove(InputFileParser& parser);
-void doIgnore(InputFileParser& parser);
+void readRectangle(InputFileParser& parser);
+void readEllipse(InputFileParser& parser);
+
 #endif

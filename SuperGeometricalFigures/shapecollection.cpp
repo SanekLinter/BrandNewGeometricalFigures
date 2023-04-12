@@ -16,7 +16,7 @@ ShapeCollection& ShapeCollection::operator=(ShapeCollection&& other) {
 	return *this;
 }
 
-void ShapeCollection::add(std::unique_ptr<Shape> newShape) {
+void ShapeCollection::add(shape_ptr_t newShape) {
 	_shapes.push_back(std::move(newShape));
 }
 
@@ -37,13 +37,13 @@ size_t ShapeCollection::getSize() const {
 void ShapeCollection::sortShapes()
 {
 	std::sort(_shapes.begin(), _shapes.end(),
-		[](std::unique_ptr<Shape>& a, std::unique_ptr<Shape>& b) {return *a < *b; });
+		[](const shape_ptr_t& a, const shape_ptr_t& b) {return *a < *b; });
 }
 
-std::unique_ptr<Shape>& ShapeCollection::operator[](size_t index) {
+shape_ptr_t& ShapeCollection::operator[](size_t index) {
 	return _shapes[index];
 }
 
-const std::unique_ptr<Shape>& ShapeCollection::operator[](size_t index) const {
+const shape_ptr_t& ShapeCollection::operator[](size_t index) const {
 	return _shapes[index];
 }

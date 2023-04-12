@@ -20,7 +20,7 @@ double Ellipse::getArea() const
 
 rectangle_t Ellipse::getFrameRect() const
 {
-	rectangle_t frameRect;
+	rectangle_t frameRect{};
 	frameRect.width = 2.0 * horizontalRadius;
 	frameRect.height = 2.0 * verticalRadius;
 	frameRect.pos.x = center.x;
@@ -42,7 +42,7 @@ void Ellipse::move(const double dx, const double dy)
 
 void Ellipse::scale(const double zoomRatio)
 {
-	verticalRadius *= zoomRatio;
+	verticalRadius   *= zoomRatio;
 	horizontalRadius *= zoomRatio;
 }
 
@@ -51,8 +51,8 @@ std::string Ellipse::getName() const
 	return "ELLIPSE";
 }
 
-std::unique_ptr<Shape> Ellipse::clone() const
+shape_ptr_t Ellipse::clone() const
 {
-	std::unique_ptr<Shape> clone = std::make_unique<Ellipse>(*this);
+	shape_ptr_t clone = std::make_unique<Ellipse>(*this);
 	return clone;
 }

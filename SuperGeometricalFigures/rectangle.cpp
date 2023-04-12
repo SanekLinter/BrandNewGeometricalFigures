@@ -21,7 +21,7 @@ double Rectangle::getArea() const
 
 rectangle_t Rectangle::getFrameRect() const
 {
-	rectangle_t frameRect;
+	rectangle_t frameRect{};
 	frameRect.width = topRight.x - bottomLeft.x;
 	frameRect.height = topRight.y - bottomLeft.y;
 	frameRect.pos.x = center.x;
@@ -66,8 +66,8 @@ std::string Rectangle::getName() const
 	return "RECTANGLE";
 }
 
-std::unique_ptr<Shape> Rectangle::clone() const
+shape_ptr_t Rectangle::clone() const
 {
-	std::unique_ptr<Shape> clone = std::make_unique<Rectangle>(*this);
+	shape_ptr_t clone = std::make_unique<Rectangle>(*this);
 	return clone;
 }

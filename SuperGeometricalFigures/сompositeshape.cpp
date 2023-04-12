@@ -85,8 +85,8 @@ std::string CompositeShape::getName() const
 	return "COMPLEX";
 }
 
-std::unique_ptr<Shape> CompositeShape::clone() const
+shape_ptr_t CompositeShape::clone() const
 {
-	std::unique_ptr<Shape> clone = std::make_unique<CompositeShape>(*this);
+	shape_ptr_t clone = std::make_unique<CompositeShape>(*this);
 	return clone;
 }
